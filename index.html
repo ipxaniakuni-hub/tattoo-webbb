@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALVIN ERIC CHU | Tattoo Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{--black:#080808;--red:#871b26;--blood:#a51e2b;--white:#eee9e5}
+body{background:var(--black);color:var(--white);font-family:Montserrat,sans-serif}
+a{text-decoration:none;color:inherit}
+nav{height:75px;padding:0 7%;display:flex;justify-content:space-between;align-items:center;background:#080808;border-bottom:1px solid #332020;position:sticky;top:0;z-index:100}
+.logo{font-family:Cinzel,serif;font-size:23px;letter-spacing:3px}
+.logo span{color:var(--blood)}
+.navlinks{display:flex;gap:25px;align-items:center}
+.navlinks a{font-size:10px;letter-spacing:2px;color:#aaa}
+.navlinks a:hover{color:#c34b57}
+.menu{display:none;background:none;color:white;border:0;font-size:25px}
+.hero{min-height:650px;display:flex;align-items:center;padding:70px 10%;background:linear-gradient(90deg,#050505 5%,#050505bb 55%,#05050530),url('https://images.unsplash.com/photo-1590246814883-57c511c9c4e8?w=1800') center/cover}
+.hero-content{max-width:570px}
+.eyebrow{color:#b33b46;letter-spacing:5px;font-size:11px}
+h1,h2,h3{font-family:Cinzel,serif}
+.hero h1{font-size:clamp(48px,8vw,85px);line-height:1.1;letter-spacing:4px;margin:20px 0}
+.hero h1 span{color:var(--blood)}
+.hero p{color:#bbb;font-size:13px;line-height:2;max-width:400px;margin-bottom:30px}
+.btn{display:inline-block;background:var(--red);border:1px solid var(--red);padding:15px 27px;color:white;font-size:10px;letter-spacing:3px;cursor:pointer;transition:.3s}
+.btn:hover{background:transparent;color:#d45a65}
+section{padding:90px 9%}
+.heading{text-align:center;font-size:32px;letter-spacing:4px}
+.desc{text-align:center;color:#888;font-size:11px;letter-spacing:3px;margin:15px 0 45px}
+.line{width:45px;height:2px;background:var(--red);margin:18px auto}
+.gallery,.flash{background:#0e0c0c}
+.filters{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:35px}
+.filters button{background:transparent;border:1px solid #493033;color:#aaa;padding:10px 17px;font-size:10px;cursor:pointer}
+.filters button.active,.filters button:hover{background:var(--red);color:white}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gallery-card{position:relative;overflow:hidden;background:#181414}
+.gallery-card img{width:100%;height:340px;object-fit:cover;filter:grayscale(100%) brightness(.8);transition:.5s}
+.gallery-card:hover img{transform:scale(1.06);filter:grayscale(30%)}
+.gallery-info{position:absolute;bottom:0;left:0;right:0;padding:35px 18px 18px;background:linear-gradient(transparent,#000)}
+.gallery-info h3{font-size:17px}
+.gallery-info p{font-size:10px;color:#aaa;margin-top:6px}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.price-card{padding:27px 20px;border:1px solid #392729;background:#101010;transition:.3s}
+.price-card:hover{border-color:var(--blood);transform:translateY(-5px)}
+.price-card h3{font-size:16px}
+.price-card p{font-size:11px;color:#888;margin-top:8px}
+.price-card strong{display:block;color:#c34b57;font-size:19px;margin-top:20px}
+.calculator{background:#100e0e}
+.calc-box{max-width:650px;margin:auto;border:1px solid #44282b;padding:35px;background:#080808}
+label{display:block;font-size:11px;color:#bbb;margin:20px 0 10px}
+select,input,textarea{width:100%;padding:14px;background:#171414;color:white;border:1px solid #493033;outline:none}
+.estimate{text-align:center;border-top:1px solid #382323;margin-top:25px;padding-top:25px}
+.estimate h2{color:#c34b57;font-size:32px;margin:12px}
+.estimate p{color:#999;font-size:11px}
+.artist{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.artist img{width:100%;height:430px;object-fit:cover;filter:grayscale(100%)}
+.artist h2{font-size:32px;margin:18px 0}
+.artist p{color:#aaa;font-size:13px;line-height:2;margin-bottom:20px}
+.artist small{color:#b64b56;letter-spacing:2px}
+.flash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.flash-card{background:#080808;border:1px solid #392729;padding:12px}
+.flash-card img{width:100%;height:190px;object-fit:cover;filter:grayscale(100%)}
+.flash-card h4{font-family:Cinzel,serif;font-size:13px;margin:12px 0}
+.flash-card span{color:#c34b57;font-size:13px}
+.booking{text-align:center}
+.booking-form{max-width:650px;margin:auto;text-align:left}
+.booking-form button{width:100%;margin-top:25px}
+footer{padding:45px 9%;background:#050505;border-top:1px solid #332020;text-align:center}
+footer h2{letter-spacing:4px}
+footer p{color:#777;font-size:10px;margin-top:15px;line-height:2}
+.hidden{display:none!important}
+
+@media(max-width:850px){
+.menu{display:block}
+.navlinks{display:none;position:absolute;top:75px;left:0;width:100%;background:#090909;padding:30px;flex-direction:column}
+.navlinks.show{display:flex}
+.gallery-grid{grid-template-columns:repeat(2,1fr)}
+.price-grid{grid-template-columns:repeat(2,1fr)}
+.artist{grid-template-columns:1fr}
+.flash-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+section{padding:65px 6%}
+.hero{min-height:560px;padding:50px 7%}
+.gallery-grid{grid-template-columns:1fr}
+.gallery-card img{height:380px}
+.price-grid{grid-template-columns:1fr 1fr}
+.price-card{padding:20px 12px}
+.flash-grid{grid-template-columns:1fr 1fr}
+.flash-card img{height:150px}
+.heading{font-size:25px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">ALVIN ERIC CHU<span>.</span></div>
+  <button class="menu" onclick="toggleMenu()">☰</button>
+  <div class="navlinks" id="navlinks">
+    <a href="#home">HOME</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#prices">PRICES</a>
+    <a href="#artist">ARTIST</a>
+    <a href="#flash">FLASH</a>
+    <a href="#booking">BOOKING</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">TATTOO ATELIER · EST. 2026</div>
+    <h1>ALVIN ERIC CHU<br><span>INK.</span></h1>
+    <p>We don't just create tattoos. We turn stories, emotions and identity into permanent art.</p>
+    <a href="#gallery" class="btn">EXPLORE OUR ART</a>
+  </div>
+</header>
+
+<section class="gallery" id="gallery">
+  <h2 class="heading">TATTOO GALLERY</h2>
+  <div class="line"></div>
+  <p class="desc">ART THAT LIVES FOREVER</p>
+
+  <div class="filters">
+    <button class="active" onclick="filterArt('all',this)">ALL</button>
+    <button onclick="filterArt('blackwork',this)">BLACKWORK</button>
+    <button onclick="filterArt('gothic',this)">GOTHIC</button>
+    <button onclick="filterArt('fine',this)">FINE LINE</button>
+    <button onclick="filterArt('ornamental',this)">ORNAMENTAL</button>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-card" data-type="blackwork">
+      <img src="chinese word.jpeg" alt="Blackwork tattoo">
+      <div class="gallery-info"><h3>CHINESE WORD</h3><p>Bold ink · Dark expression</p></div>
+    </div>
+    <div class="gallery-card" data-type="gothic">
+      <img src="full back.jpeg" alt="Gothic tattoo">
+      <div class="gallery-info"><h3>FULL BACK</h3><p>Dark symbolism · Eternal art</p></div>
+    </div>
+    <div class="gallery-card" data-type="ornamental">
+      <img src="ornametal.jpeg" alt="Ornamental tattoo">
+      <div class="gallery-info"><h3>ORNAMENTAL</h3><p>Intricate details · Fine art</p></div>
+    </div>
+    <div class="gallery-card" data-type="fine">
+      <img src="fine line.jpeg" alt="Fine line tattoo">
+      <div class="gallery-info"><h3>FINE LINE</h3><p>Minimal · Meaningful</p></div>
+    </div>
+    <div class="gallery-card" data-type="blackwork">
+      <img src="full leg.jpeg" alt="Full leg tattoo">
+      <div class="gallery-info"><h3>FULL LEG</h3><p>Powerful · Timeless</p></div>
+    </div>
+    <div class="gallery-card" data-type="gothic">
+      <img src="dark symbols.jpeg" alt="Gothic tattoo artwork">
+      <div class="gallery-info"><h3>DARK SYMBOLS</h3><p>Personal stories · Custom art</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <h2 class="heading">PRICE MENU</h2>
+  <div class="line"></div>
+  <p class="desc">INVEST IN YOUR ART</p>
+
+  <div class="price-grid">
+    <div class="price-card"><h3>CONSULTATION</h3><strong>FREE</strong></div>
+    <div class="price-card"><h3>DESIGN</h3><strong>FREE</strong></div>
+    <div class="price-card"><h3>SMALL TATOO</h3><p>15–27 cm</p><strong>RM 50</strong></div>
+    <div class="price-card"><h3>MEDIUM TATTOO</h3><p>18 – 20cm </p><strong>RM 100</strong></div>
+    <div class="price-card"><h3>LARGE TATTOO</h3><p>Large body part</p><strong>RM 850</strong></div>
+    <div class="price-card"><h3>SLEEVE TATTOO</h3><p>Full arm</p><strong>RM850 </strong></div>
+  </div>
+  <p style="text-align:center;color:#777;font-size:10px;margin-top:25px">*Sample prices. Final quotation depends on design and complexity.</p>
+</section>
+
+<section class="calculator">
+  <h2 class="heading">PRICE ESTIMATOR</h2>
+  <div class="line"></div>
+  <p class="desc">GET AN ESTIMATED PRICE</p>
+
+  <div class="calc-box">
+    <label>TATTOO SIZE</label>
+    <select id="size" onchange="calculate()">
+      <option value="125">Consultation (FREE)</option>
+      <option value="215">Design (FREE)</option>
+      <option value="215">Small (15–17 cm)</option>
+      <option value="400">Medium (18 – 20cm )</option>
+      <option value="750">Large (Large Body Part)</option>
+      <option value="1600"> Sleeve</option>
+    </select>
+
+    <label>DESIGN COMPLEXITY</label>
+    <select id="complexity" onchange="calculate()">
+      <option value="1">Simple</option>
+      <option value="1.6">Highly Detailed</option>
+    </select>
+
+    <div class="estimate">
+      <p>ESTIMATED PRICE</p>
+      <h2 id="result">FREE</h2>
+      <p>Final price confirmed after artist consultation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="artist">
+  <div class="artist">
+    <img src="https://images.unsplash.com/photo-1590246814883-57c511c9c4e8?w=900" alt="Tattoo artist at work">
+    <div>
+      <small>MEET THE ARTIST</small>
+      <h2>INKED BY PASSION.</h2>
+      <p>Every line has meaning. Every shadow has a story. Our studio focuses on custom tattoo artwork designed around your individual expression.</p>
+      <p>From intricate details to bold blackwork, every piece receives attention and care.</p>
+      <a href="#booking" class="btn">WORK WITH US</a>
+    </div>
+  </div>
+</section>
+
+<section class="flash" id="flash">
+  <h2 class="heading">FLASH DESIGNS</h2>
+  <div class="line"></div>
+  <p class="desc">CHOOSE YOUR NEXT INK</p>
+
+  <div class="flash-grid">
+    <div class="flash-card">
+      <img src="kitsune fox.jpeg" alt="Flash design 1">
+      <h4>BACK</h4><span>RM 100</span>
+    </div>
+    <div class="flash-card">
+      <img src="Flower with chinese word.jpeg" alt="Flash design 2">
+      <h4>BELLY</h4><span>RM 100</span>
+    </div>
+    <div class="flash-card">
+      <img src="dragon.jpeg" alt="Flash design 3">
+      <h4>LEG</h4><span>RM 800</span>
+    </div>
+    <div class="flash-card">
+      <img src="chinese word.jpeg" alt="Flash design 4">
+      <h4>SLEEVE</h4><span>RM 50</span>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <h2 class="heading">BOOK YOUR SESSION</h2>
+  <div class="line"></div>
+  <p class="desc">LET'S CREATE SOMETHING PERMANENT</p>
+
+  <form class="booking-form" onsubmit="bookWhatsApp(event)">
+    <label>YOUR NAME</label>
+    <input id="customer" type="text" placeholder="Enter your name" required>
+
+    <label>WHICH TATTOO?</label>
+    <select id="tattoo">
+      <option>Chinese Word</option>
+      <option>Full Leg</option>
+      <option>Fine Line</option>
+      <option>Ornamental</option>
+      <option>Custom Design</option>
+    </select>
+
+    <label>TATTOO SIZE</label>
+    <select id="tattoosize">
+      <option>Consultation</option>
+      <option>Design</option>
+      <option>Small Tattoo</option>
+      <option>Medium Tattoo</option>
+      <option>Large Tattoo</option>
+      <option>Sleeve Tattoo</option>
+    </select>
+
+    <label>PREFERRED DATE</label>
+    <input type="date" id="date" required>
+
+    <label>YOUR DESIGN IDEA</label>
+    <textarea id="idea" placeholder="Describe your tattoo idea..."></textarea>
+
+    <button class="btn" type="submit">SEND BOOKING REQUEST ↗️</button>
+  </form>
+</section>
+
+<footer>
+  <h2>ALVIN ERIC CHU <span style="color:#a51e2b">INK.</span></h2>
+  <p>ART BEYOND THE SKIN.</p>
+  <p>TIKTOK · WHATSAPP · CONTACT</p>
+  <p>©️ 2026 ALVIN ERIC CHU INK. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navlinks').classList.toggle('show');
+}
+
+document.querySelectorAll('.navlinks a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    document.getElementById('navlinks').classList.remove('show');
+  });
+});
+
+function filterArt(type,button){
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+
+  document.querySelectorAll('.gallery-card').forEach(card=>{
+    card.classList.toggle('hidden',type!=='all' && card.dataset.type!==type);
+  });
+}
+
+function calculate(){
+  const size=Number(document.getElementById('size').value);
+  const complexity=Number(document.getElementById('complexity').value);
+  const total=Math.round(size*complexity);
+  document.getElementById('result').textContent='RM '+total.toLocaleString('en-MY');
+}
+
+function bookWhatsApp(event){
+  event.preventDefault();
+
+  const phone='0199598139'; // CHANGE TO OWNER'S WHATSAPP NUMBER
+  const name=document.getElementById('customer').value;
+  const tattoo=document.getElementById('tattoo').value;
+  const size=document.getElementById('tattoosize').value;
+  const date=document.getElementById('date').value;
+  const idea=document.getElementById('idea').value;
+
+  const message=`Hello ALVIN ERIC CHU INK!
+
+Name: ${name}
+Tattoo style: ${tattoo}
+Size: ${size}
+Preferred date: ${date}
+Design idea: ${idea}
+
+I would like to enquire about a tattoo appointment.`;
+
+  window.open('https://wa.me/60199598139?text=Hi%2C%20hello'+phone+'?text='+encodeURIComponent(message),'_blank');
+}
+
+document.getElementById('date').min=new Date().toISOString().split('T')[0];
+</script>
+
+</body>
+</html>
